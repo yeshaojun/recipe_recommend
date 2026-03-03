@@ -1,0 +1,62 @@
+{
+  "name": "recipe-app-frontend",
+  "version": "1.0.0",
+  "description": "家庭食谱规划小程序 - 前端",
+  "private": true,
+  "templateInfo": {
+    "name": "default",
+    "typescript": true,
+    "css": "sass"
+  },
+  "scripts": {
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "build:weapp": "taro build --type weapp",
+    "dev:h5": "npm run build:h5 -- --watch",
+    "build:h5": "taro build --type h5",
+    "lint": "eslint --ext .ts,.tsx src/",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tarojs/components": "^3.6.0",
+    "@tarojs/helper": "^3.6.0",
+    "@tarojs/plugin-framework-react": "^3.6.0",
+    "@tarojs/plugin-platform-alipay": "^3.6.0",
+    "@tarojs/plugin-platform-h5": "^3.6.0",
+    "@tarojs/plugin-platform-jd": "^3.6.0",
+    "@tarojs/plugin-platform-swan": "^3.6.0",
+    "@tarojs/plugin-platform-tt": "^3.6.0",
+    "@tarojs/plugin-platform-weapp": "^3.6.0",
+    "@tarojs/react": "^3.6.0",
+    "@tarojs/runtime": "^3.6.0",
+    "@tarojs/shared": "^3.6.0",
+    "@tarojs/taro": "^3.6.0",
+    "dayjs": "^1.11.0",
+    "mobx": "^6.9.0",
+    "mobx-react": "^9.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zustand": "^4.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/plugin-proposal-class-properties": "^7.18.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/preset-react": "^7.18.0",
+    "@babel/preset-typescript": "^7.18.0",
+    "@tarojs/cli": "^3.6.0",
+    "@tarojs/taro-loader": "^3.6.0",
+    "@tarojs/webpack5-runner": "^3.6.0",
+    "@types/react": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "babel-preset-taro": "^3.6.0",
+    "eslint": "^8.40.0",
+    "eslint-config-taro": "^3.6.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "sass": "^1.62.0",
+    "typescript": "^5.0.0",
+    "webpack": "^5.78.0"
+  }
+}
