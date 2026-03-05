@@ -44,7 +44,7 @@
     "@babel/preset-env": "^7.20.0",
     "@babel/preset-react": "^7.18.0",
     "@babel/preset-typescript": "^7.18.0",
-    "@tarojs/cli": "^3.6.0",
+    "@tarojs/cli": "^3.6.39",
     "@tarojs/taro-loader": "^3.6.0",
     "@tarojs/webpack5-runner": "^3.6.0",
     "@types/react": "^18.0.0",

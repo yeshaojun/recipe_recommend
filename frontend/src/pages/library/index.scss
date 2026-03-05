@@ -1,0 +1,255 @@
+.page-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #FFF8F0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30rpx;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20rpx);
+  -webkit-backdrop-filter: blur(20rpx);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 2rpx 16rpx rgba(0, 0, 0, 0.06);
+  box-sizing: content-box;
+}
+
+.header-left, .header-right {
+  width: 80rpx;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.back-icon {
+  font-size: 36rpx;
+}
+
+.add-icon {
+  font-size: 36rpx;
+  color: #FF6B35;
+}
+
+.header-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12rpx;
+  flex: 1;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.logo-icon {
+  width: 48rpx;
+  height: 48rpx;
+  background: linear-gradient(135deg, #FF6B35, #FF8F5A);
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  flex-shrink: 0;
+}
+
+.header-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.content {
+  flex: 1;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 24rpx;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tip-card {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 143, 90, 0.1));
+  border-radius: 24rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.tip-icon {
+  width: 64rpx;
+  height: 64rpx;
+  background: #FF6B35;
+  border-radius: 14rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.tip-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+}
+
+.tip-count {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 16rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.search-icon {
+  font-size: 28rpx;
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  font-size: 26rpx;
+  min-width: 0;
+}
+
+.filters {
+  display: flex;
+  gap: 12rpx;
+  margin-bottom: 20rpx;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filters::-webkit-scrollbar {
+  display: none;
+}
+
+.filter-tag {
+  padding: 10rpx 24rpx;
+  background: #F3F4F6;
+  border-radius: 40rpx;
+  font-size: 24rpx;
+  color: #666;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.filter-tag.active {
+  background: #FF6B35;
+  color: #fff;
+}
+
+.section {
+  background: #fff;
+  border-radius: 28rpx;
+  padding: 28rpx;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+}
+
+.ingredient-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14rpx;
+}
+
+.ingredient-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 18rpx;
+  background: #F9FAFB;
+  border-radius: 20rpx;
+}
+
+.ingredient-icon {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  flex-shrink: 0;
+}
+
+.ingredient-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  font-size: 22rpx;
+  color: #999;
+}
+
+.actions {
+  display: flex;
+  gap: 12rpx;
+  flex-shrink: 0;
+}
+
+.action {
+  font-size: 28rpx;
+  padding: 8rpx;
+}
+
+// 小屏幕适配
+@media (max-width: 375px) {
+  .header-title {
+    font-size: 28rpx;
+  }
+  .section-title {
+    font-size: 28rpx;
+  }
+  .tip-title {
+    font-size: 26rpx;
+  }
+  .name {
+    font-size: 26rpx;
+  }
+}

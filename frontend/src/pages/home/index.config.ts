@@ -1,5 +1,5 @@
 export default definePageConfig({
-  navigationBarTitleText: '今天吃什么',
-  navigationBarBackgroundColor: '#FF6B35',
-  navigationBarTextStyle: 'white'
+  navigationBarTitleText: '今日吃啥',
+  navigationStyle: 'custom',
+  backgroundColor: '#FFF8F0',
 })

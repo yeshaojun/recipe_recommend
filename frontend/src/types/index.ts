@@ -1,65 +1,47 @@
-export interface Ingredient {
-  id: string
+// 菜品类型
+export interface Dish {
+  id: number
   name: string
-  category: string
-  image?: string
-  quantity?: number
-  unit?: string
-  expiryDate?: string
-  addedAt: string
+  image: string
+  calories: number
+  time: string
 }
 
-export interface Recipe {
-  id: string
+// 食材类型
+export interface Ingredient {
+  id: number
+  name: string
+  quantity: string
+  unit: string
+  category: string
+}
+
+// 偏好选项
+export interface Preference {
+  id: number
+  name: string
+  icon: string
+  selected: boolean
+}
+
+// 聊天消息
+export interface ChatMessage {
+  id: number
+  role: 'user' | 'ai'
+  content: string
+  recipes?: Dish[]
+}
+
+// 烹饪步骤
+export interface CookingStep {
+  id: number
   title: string
   description: string
-  image: string
-  prepTime: number
-  cookTime: number
-  servings: number
-  difficulty: 'easy' | 'medium' | 'hard'
-  ingredients: Array<{
-    name: string
-    quantity: number
-    unit: string
-  }>
-  steps: string[]
-  tags: string[]
-  calories?: number
-  protein?: number
-  createdAt: string
+  duration: string
+  completed: boolean
 }
 
-export interface UserPreference {
-  id: string
-  dietaryGoals: string[]
-  dietaryRestrictions: string[]
-  favoriteCuisines: string[]
-  dislikedIngredients: string[]
-  spiceLevel: 'none' | 'mild' | 'medium' | 'spicy'
-  targetCalories?: number
-  targetProtein?: number
-}
-
-export interface OCRResult {
-  success: boolean
-  ingredients?: Ingredient[]
-  error?: string
-}
-
-export interface SpeechResult {
-  success: boolean
-  text?: string
-  error?: string
-}
-
-export interface RecommendationRequest {
-  ingredients: Ingredient[]
-  preferences?: UserPreference
-}
-
-export interface RecommendationResponse {
-  recipes: Recipe[]
-  matchRate: number
-  suggestions?: string[]
+// 菜谱详细
+export interface DishRecipe extends Dish {
+  steps: CookingStep[]
 }
