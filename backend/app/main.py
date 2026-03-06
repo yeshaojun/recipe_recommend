@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from app.config import settings
 import logging
 
-from app.routes import recipes, ingredients, preferences
+from app.routes import recipes_db as recipes, ingredients_db as ingredients, preferences_db as preferences
 
 # 配置日志
 logging.basicConfig(

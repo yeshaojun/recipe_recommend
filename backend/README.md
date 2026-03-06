@@ -73,31 +73,38 @@ make dev
 - ReDoc: http://localhost:8000/redoc
 
 ## API 接口
+### 食材识别
+- 通过图片/文字/语音，识别成食材列表
+- 将食材列表添加到食材库
+- 添加食材
+- 获取所有食材
+- 删除食材
+- 更新食材
 
 ### 菜谱相关
+- 获取推荐菜谱（根据食材和偏好，推荐5个菜谱）
+- 语音输入生成菜谱
+- 将菜谱添加到今日菜单
+- 获取今日菜单（第二天自动清空）
 
-- `GET /api/recipes` - 获取所有菜谱
-- `GET /api/recipes/{recipe_id}` - 获取单个菜谱详情
-- `POST /api/recipes/recommendations` - 获取智能推荐
-- `POST /api/recipes/generate` - **使用 AI 生成菜谱**
-- `POST /api/recipes/chat` - **与 AI 烹饪助手聊天**
+### 菜谱收藏
+- 添加菜谱收藏
+- 获取所有收藏菜谱
+- 删除收藏菜谱
 
-### 食材相关
-
-- `POST /api/ingredients` - 添加食材
-- `GET /api/ingredients` - 获取所有食材
-- `DELETE /api/ingredients/{ingredient_id}` - 删除食材
-- `PUT /api/ingredients/{ingredient_id}` - 更新食材
+### 食材库
+- 获取所有的食材
+- 添加食材（可通过图片，或者语音识别添加）
+- 删除食材
+- 更新食材
 
 ### 用户偏好
-
 - `POST /api/preferences` - 保存用户偏好
 - `GET /api/preferences` - 获取用户偏好
 
 ### 其他
-
-- `GET /api/health` - 健康检查
-- `GET /` - 根路径（服务信息）
+- 用户登陆（微信小程序，使用手机号登陆）
+- AI聊天接口
 
 ## 大模型集成
 

@@ -1,7 +1,8 @@
 """菜谱路由"""
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
+from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.models import (
     RecipeGenerationRequest,
@@ -12,20 +13,22 @@ from app.models import (
 )
 from app.services.recipe_service import recipe_service
 from app.services.llm_service import llm_service
+from app.db.database import get_db
 
 router = APIRouter(prefix="/recipes", tags=["菜谱"])
 
 
 @router.get("", response_model=list[dict])
-async def get_all_recipes():
+async def get_all_recipes(db: AsyncSession = Depends(get_db)):
     """获取所有菜谱"""
-    return [r.model_dump() for r in recipe_service.get_all_recipes()]
+    recipes = await recipe_service.get_all_recipes(db)
+    return [r.model_dump() for r in recipes]
 
 
 @router.get("/{recipe_id}", response_model=dict)
-async def get_recipe_by_id(recipe_id: str):
+async def get_recipe_by_id(recipe_id: str, db: AsyncSession = Depends(get_db)):
     """获取单个菜谱详情"""
-    recipe = recipe_service.get_recipe_by_id(recipe_id)
+    recipe = await recipe_service.get_recipe_by_id(recipe_id, db)
     if not recipe:
         raise HTTPException(status_code=404, detail="菜谱不存在")
     return recipe.model_dump()
@@ -42,7 +45,9 @@ class RecommendationRequestWrapper(BaseModel):
 
 
 @router.post("/recommendations")
-async def get_recommendations(request: RecommendationRequestWrapper):
+async def get_recommendations(
+    request: RecommendationRequestWrapper, db: AsyncSession = Depends(get_db)
+):
     """获取菜谱推荐"""
     from app.models import CuisineType, Difficulty, UserPreference
 
@@ -56,7 +61,7 @@ async def get_recommendations(request: RecommendationRequestWrapper):
         if request.preferences
         else None,
     )
-    result = recipe_service.get_recommendations(req)
+    result = await recipe_service.get_recommendations(req, db)
     return {
         "recommendations": [r.model_dump() for r in result.recommendations],
         "total": result.total,
